@@ -1,0 +1,21 @@
+Package: CS599.RPackageTwo
+Title: Run basic unsupervised learning algorithms
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Benjamin",
+           family = "Couey",
+           role = c("aut", "cre"),
+           email = "bhc36@nau.edu")
+Description: As a project for CS599 Unsupervised Learning, I built this package
+             of simple unsupervised learning algorithms. Specifically, this
+             package provides a simple implementation of principal component
+             analysis to perform dimensionality reduction and a simple
+             implementation of dynamic programming to perform changepoint
+             detection. Note, while these algorithms work, they are more limited
+             in options and less efficient than those algoirthms found in other,
+             more proffessional packages.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
