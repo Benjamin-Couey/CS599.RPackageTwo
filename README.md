@@ -1,5 +1,9 @@
 # CS599.RPackageTwo
 
+<!-- badges: start -->
+  [![Build status](https://travis-ci.com/Benjamin-Couey/CS599.RPackageTwo.svg?branch=master)](https://travis-ci.com/Benjamin-Couey/CS599.RPackageTwo)
+  <!-- badges: end -->
+
 As a project for CS599 Unsupervised Learning, I built this package of simple
 unsupervised learning algorithms. Specifically, this package provides a simple
 implementation of principal component analysis to perform dimensionality
