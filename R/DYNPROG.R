@@ -1,15 +1,24 @@
-# Description - Determines the optimal points in a signal to split so as to
-#             minimize cost.
-# Arguments - signal: The sequence of values to split
-#             max.segs: The maximum number of segments the sequence should be
-#             split into
-# Returns - A list which contains the following elements is returned:
-#                   cost: A max.segs by signal length matrix where the element
-#                   position [i,j] is the optimal cost for splitting the signal,
-#                   up to index j, into i segments.
-#                   change: A max.segs by max.segs triangular matrix where the
-#                   element in position [i,j] is the index of the jth optimal
-#                   changepoint when splitting the whole signal into i segments.
+#' Determines the optimal points in a signal to split so as to minimize cost.
+#'
+#' @param signal The sequence of values to split
+#' @param max.segs The maximum number of segments the sequence should be split
+#'                     into
+#'
+#' @return A list which contains the following elements is returned:
+#'             cost: A max.segs by signal length matrix where the element at
+#'             position [i,j] is the optimal cost for splitting the signal,
+#'             up to index j, into i segments.
+#'             change: A max.segs by max.segs triangular matrix where the
+#'             element in position [i,j] is the index of the jth optimal
+#'             changepoint when splitting the whole signal into i segments.
+#'
+#' @export
+#'
+#' @examples
+#' signal <- c( runif(25, min=0, max=2), runif(25, min=2, max=5) )
+#' DYNPROG.fit <- DYNPROG( signal, 10 )
+#' DYNPROG.fit$cost
+#' DYNPROG.fit$change
 DYNPROG <- function( signal, max.segs ) {
   # Initialize the matrix which will contain the optimal costs
   cost.mat <- matrix( nrow = max.segs, ncol = length( signal ) )
@@ -90,13 +99,23 @@ DYNPROG <- function( signal, max.segs ) {
   return( list( cost=cost.mat, change=change.mat ) )
 }
 
-# Description - A helper function which determines the optimal cost for a given
-#               subsignal
-# Arguments - Q.vec : the cumulative sum of squares for the full signal
-#             S.vec : the cumulative sum for the full signal
-#             start.index : the first index in the subsignal, inclusive
-#             end.index : the last index in the subsignal, inclusive
-# Returns - the optimal cost for the subsignal
+#' A helper function which determines the optimal cost for a given subsignal
+#'
+#' @param Q.vec The cumulative sum of squares for the full signal
+#' @param S.vec The cumulative sum for the full signal
+#' @param start.index The first index in the subsignal, inclusive
+#' @param end.index The last index in the subsignal, inclusive
+#'
+#' @return The optimal cost for the subsignal
+#'
+#' @export
+#'
+#' @examples
+#' signal <- c( runif(25, min=0, max=2),
+#'              runif(25, min=2, max=5) )
+#' Q.vec <- c( 0, cumsum( signal^2 ) )
+#' S.vec <- c( 0, cumsum( signal ) )
+#' cost <- optimal.cost( Q.vec, S.vec, 1, length( signal ) )
 optimal.cost <- function( Q.vec, S.vec, start.index, end.index ) {
   end <- end.index + 1
   return( Q.vec[ end ] - Q.vec[ start.index ]

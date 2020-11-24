@@ -1,9 +1,18 @@
-# Description - Performs basic principal component analysis on the given data
-#               matrix
-# Arguments - data.mat : The data set to run PCA on
-# Returns - A list which contains the following elements is returned:
-#                   rotation: the matrix of weights for the original variables
-#                   lambda: the matrix of lambda values
+#' Performs basic principal component analysis on the given data matrix
+#'
+#' @param data.mat The matrix of data to perform PCA on
+#'
+#' @return A list which contains the following elements is returned:
+#'             rotation: the matrix of weights for the original variables
+#'             lambda: the matrix of lambda values
+#'
+#' @export
+#'
+#' @examples
+#' test.matrix <- as.matrix( iris[ 1:50, 1:4 ] )
+#' PCA.fit <- PCA( test.matrix )
+#' PCA.fit$rotation
+#' PCA.fit$lambda
 PCA <- function( data.mat ) {
   # First, standardize the data matrix so all variables will have an equal
   # impact on the PCA calculation
