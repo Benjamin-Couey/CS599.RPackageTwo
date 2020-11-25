@@ -15,18 +15,17 @@ into}
 \value{
 A list which contains the following elements is returned:
 cost: A max.segs by signal length matrix where the element at
-position \link{i,j} is the optimal cost for splitting the signal,
+position [i,j] is the optimal cost for splitting the signal,
 up to index j, into i segments.
 change: A max.segs by max.segs triangular matrix where the
-element in position \link{i,j} is the index of the jth optimal
+element in position [i,j] is the index of the jth optimal
 changepoint when splitting the whole signal into i segments.
 }
 \description{
 Determines the optimal points in a signal to split so as to minimize cost.
 }
 \examples{
-signal <- c( runif(25, min=0, max=2),
-             runif(25, min=2, max=5) )
+signal <- c( runif(25, min=0, max=2), runif(25, min=2, max=5) )
 DYNPROG.fit <- DYNPROG( signal, 10 )
 DYNPROG.fit$cost
 DYNPROG.fit$change

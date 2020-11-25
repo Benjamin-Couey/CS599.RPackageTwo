@@ -6,10 +6,10 @@
 #'
 #' @return A list which contains the following elements is returned:
 #'             cost: A max.segs by signal length matrix where the element at
-#'             position [i,j] is the optimal cost for splitting the signal,
+#'             position \[i,j\] is the optimal cost for splitting the signal,
 #'             up to index j, into i segments.
 #'             change: A max.segs by max.segs triangular matrix where the
-#'             element in position [i,j] is the index of the jth optimal
+#'             element in position \[i,j\] is the index of the jth optimal
 #'             changepoint when splitting the whole signal into i segments.
 #'
 #' @export
