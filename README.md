@@ -1,7 +1,7 @@
 # CS599.RPackageTwo
 
 <!-- badges: start -->
-  [![Build status](https://travis-ci.com/Benjamin-Couey/CS599.RPackageTwo.svg?branch=master)](https://travis-ci.com/Benjamin-Couey/CS599.RPackageTwo)
+  [![Build Status](https://travis-ci.org/Benjamin-Couey/CS599.RPackageTwo.svg?branch=master)](https://travis-ci.org/Benjamin-Couey/CS599.RPackageTwo)
   <!-- badges: end -->
 
 As a project for CS599 Unsupervised Learning, I built this package of simple
